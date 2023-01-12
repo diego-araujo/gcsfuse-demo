@@ -1,0 +1,15 @@
+version: '3.5'
+
+services:
+  gcsfuse:
+    container_name: gcsfuse    
+    build:
+      context: .
+      dockerfile: Dockerfile
+    privileged: true
+    volumes:
+      # - ./:/app
+      - ./credentials:/credentials
+    ports:
+      - "8080:8080"
+    env_file: .env
